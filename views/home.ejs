@@ -1,0 +1,64 @@
+<html><head>
+    <!-- linking css in assets folder -->
+    <link rel="stylesheet" href="/css/css.css">
+    <!-- link css from web to use in UI -->
+<link rel="stylesheet "href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" >
+<!-- linking fontawesome web -->
+    <script src="https://kit.fontawesome.com/108f3e338d.js" crossorigin="anonymous">
+        // linking outher web css used in UI
+        <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      />
+    </script>
+</head>
+<body>
+    <!-- header -->
+    <header><h1>Todolist</h1></header>
+<!-- make a form -->
+    <form action="/task" method="POST"><div id="input">
+        <!-- adding description of task -->
+        <div id="description"><h3  class="animate__animated animate__pulse">Description</h3><textarea name="task" type="textbox" placeholder="Enter Description of the Task" id="input1" required ></textarea></div>
+        <!-- adding category types -->
+        <div id="category"><div ><h3  class="animate__animated animate__pulse">Category</h3><select name="category" id="input2" required>
+          
+            <option disabled selected>Choose a Category</option> 
+            <option style="border: 2px solid blue;">School</option>
+            <option>Personal</option>
+            <option>Cleaning</option>
+            <option>Other</option>
+        </select></div>
+        <!-- adding date -->
+        <div id="date"><h3  class="animate__animated animate__pulse">Date</h3><input type="date" name="date" id="input3" required></div></div></div>
+        <!-- adding add task button to subit form to db -->
+        <div class="btn">
+            <span class="noselect"><button>Add Task</button></span>
+          </div>
+    </form>
+
+
+
+
+
+
+
+
+   <div id="output">
+    <!-- Use loop to print the values of task,categorhy and date -->
+    
+    <% for(let i of contact_list){%>
+        <!-- printing task -->
+       <div id="out1"> <span id="otask"><%=i.task%></span>
+        &nbsp;
+        <!-- printing dates -->
+        <span id="odate"><%=i.date%></span><br><br>
+        <!-- printing category -->
+        <div id="color"><div id="catp"><%=i.category%></div>
+      <!-- importing delete icon from fontawesome -->
+        <div id="delete"><a href="/delete-contact/?id=<%=i.id %>">
+            <i class="fas fa-window-close delete">Delete</i>
+        </a></div></div> </div> <%}%>
+        </div>
+        <!-- linking js file in assest folder -->
+        <script type="text/javascript" src="/js/code.js" ></script>
+</body></html>
